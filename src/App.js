@@ -9,7 +9,7 @@ function App() {
 
   function handleClick(event){
     setSpotlight(prevSpotlight => {
-      return {...prevSpotlight, x: event.pageX, y:event.pageY, picked: true}
+      return {...prevSpotlight, x: event.pageX - 15, y:event.pageY - 15, picked: true}
     })
     console.log(event)
     // return (
@@ -21,7 +21,7 @@ function App() {
     display: spotlight.picked ? 'block' : 'none',
     position: "absolute",
     top: spotlight.y,
-    right: spotlight.x
+    left: spotlight.x
   }
 
   return (
