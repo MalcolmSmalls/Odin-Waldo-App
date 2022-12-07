@@ -1,0 +1,9 @@
+.location {
+  border:2px black solid;
+  width:10px;
+  height:10px;
+}
+
+.image-container {
+  position:relative;
+}
