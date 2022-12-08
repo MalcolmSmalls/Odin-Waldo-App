@@ -2,6 +2,7 @@
   border:2px black solid;
   width:15px;
   height:15px;
+  z-index:5;
 }
 
 .image-container {

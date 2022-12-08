@@ -7,7 +7,7 @@ import Header from "./Components/Header"
 function App() {
 
   const [ spotlight, setSpotlight] = React.useState(
-    {x: 0, y: 0, picked: true})
+    {x: 0, y: 0, picked: false})
 
   const [ level, setLevel ] = React.useState(0)
 
@@ -41,24 +41,26 @@ function App() {
 
   function handleClick(event){
     setSpotlight(prevSpotlight => {
-      return {...prevSpotlight, x: event.pageX - 15, y:event.pageY - 15, picked: true}
+      return {...prevSpotlight, x: event.pageX-9, y:event.pageY-6, picked: true}
+
 
     })
-
-
+    console.log(spotlight)
+    console.log(event)
   }
 
   const styles = {
-    // display: spotlight.picked ? 'block' : 'none',
+    display: spotlight.picked ? 'block' : 'none',
     position: "absolute",
     left: spotlight.x,
-    top: spotlight.y
+    top: spotlight.y,
   }
 
   return (
     <div className="App">
+      <div className="location" style={styles}></div>
       <Header checkLevel = {level}/>
-      <Image handleClick = {handleClick} style = {styles}/>
+      <Image handleClick = {handleClick}/>
     </div>
   );
 }
