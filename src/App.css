@@ -18,10 +18,13 @@ header {
   display:flex;
 }
 
-.rightSide{
+.find-waldo{
   display:flex;
   flex-direction: column;
   align-items:center;
+}
+
+.rightSide {
   margin-left:auto;
 }
 

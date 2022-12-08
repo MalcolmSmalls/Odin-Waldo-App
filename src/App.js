@@ -9,6 +9,10 @@ function App() {
   const [ spotlight, setSpotlight] = React.useState(
     {x: 0, y: 0, picked: false})
 
+  const [ characters, setCharacters ] = React.useState(
+    {waldo: 1, odlaw: 1, wizard: 1}
+  )
+
   const [ level, setLevel ] = React.useState(0)
 
   // function levelUp () {
@@ -32,11 +36,19 @@ function App() {
   React.useEffect( () => {
     const waldoX = data[level].waldo.x
     const waldoY = data[level].waldo.y
-    if((spotlight.y >= waldoY-15 && spotlight.y <= waldoY+15) && (spotlight.x >= waldoX-15 && spotlight.x <= waldoX+15)){
+    if((spotlight.y >= waldoY-15 && spotlight.y <= waldoY+15) && (spotlight.x >= waldoX-15 && spotlight.x <= waldoX)){
       console.log('works')
 
     }
-  })
+
+  }, [spotlight])
+
+  React.useEffect ( () => {
+    if(level === 0){
+      setCharacters({waldo: 1, odlaw: 0, wizard: 0})
+    }
+    console.log(characters)
+  }, [level])
   
 
   function handleClick(event){
@@ -59,7 +71,7 @@ function App() {
   return (
     <div className="App">
       <div className="location" style={styles}></div>
-      <Header checkLevel = {level}/>
+      <Header checkLevel = {level} checkCharacters = {characters} />
       <Image handleClick = {handleClick}/>
     </div>
   );
