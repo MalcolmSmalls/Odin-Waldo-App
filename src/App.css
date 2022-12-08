@@ -7,3 +7,29 @@
 .image-container {
   position:relative;
 }
+
+body{
+  display:flex;
+  justify-content:center;
+}
+
+header {
+  display:flex;
+}
+
+.rightSide{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  margin-left:auto;
+}
+
+h3 { 
+  margin:0px;
+}
+
+.waldoPhoto {
+  margin-top:30px;
+  width:15%;
+  height:auto;
+}

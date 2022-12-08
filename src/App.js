@@ -2,6 +2,7 @@ import './App.css';
 import Image from "./Components/Image"
 import React from "react"
 import data from "./data.js"
+import Header from "./Components/Header"
 
 function App() {
 
@@ -56,6 +57,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header checkLevel = {level}/>
       <Image handleClick = {handleClick} style = {styles}/>
     </div>
   );
