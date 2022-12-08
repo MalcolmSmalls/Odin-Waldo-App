@@ -37,8 +37,9 @@ function App() {
     const waldoX = data[level].waldo.x
     const waldoY = data[level].waldo.y
     if((spotlight.y >= waldoY-15 && spotlight.y <= waldoY+15) && (spotlight.x >= waldoX-15 && spotlight.x <= waldoX)){
-      console.log('works')
-
+      setCharacters( prevCharacters => {
+        return {...prevCharacters, waldo:0}
+      })
     }
 
   }, [spotlight])
