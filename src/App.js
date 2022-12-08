@@ -10,22 +10,32 @@ function App() {
 
   const [ level, setLevel ] = React.useState(0)
 
-  function levelUp () {
+  // function levelUp () {
 
+  //   const waldoX = data[level].waldo.x
+  //   const waldoY = data[level].waldo.y
+
+  //   console.log(spotlight.y)
+  //   console.log(waldoY)
+
+
+
+  //   if((spotlight.y >= waldoY-15 && spotlight.y <= waldoY+15) && (spotlight.x >= waldoX-15 && spotlight.x <= waldoX+15)){
+  //     console.log('works')
+
+  //   }
+
+
+  // }
+
+  React.useEffect( () => {
     const waldoX = data[level].waldo.x
     const waldoY = data[level].waldo.y
-
-
-
-    if(spotlight.y >= waldoY-15 && spotlight.y <= waldoY+15){
+    if((spotlight.y >= waldoY-15 && spotlight.y <= waldoY+15) && (spotlight.x >= waldoX-15 && spotlight.x <= waldoX+15)){
       console.log('works')
 
     }
-
-
-  }
-
-  // console.log(data[0].waldo.x)
+  })
   
 
   function handleClick(event){
@@ -34,8 +44,6 @@ function App() {
 
     })
 
-    levelUp()
-    console.log(spotlight)
 
   }
 
