@@ -3,6 +3,7 @@ import Image from "./Components/Image"
 import React from "react"
 import data from "./data.js"
 import Header from "./Components/Header"
+import Timer from "./Components/Timer"
 
 function App() {
 
@@ -15,23 +16,9 @@ function App() {
 
   const [ level, setLevel ] = React.useState(0)
 
-  // function levelUp () {
-
-  //   const waldoX = data[level].waldo.x
-  //   const waldoY = data[level].waldo.y
-
-  //   console.log(spotlight.y)
-  //   console.log(waldoY)
 
 
 
-  //   if((spotlight.y >= waldoY-15 && spotlight.y <= waldoY+15) && (spotlight.x >= waldoX-15 && spotlight.x <= waldoX+15)){
-  //     console.log('works')
-
-  //   }
-
-
-  // }
 
   React.useEffect( () => {
     const waldoX = data[level].waldo.x
@@ -43,6 +30,8 @@ function App() {
     }
 
   }, [spotlight])
+
+
 
   React.useEffect ( () => {
     if(level === 0){
@@ -72,7 +61,7 @@ function App() {
   return (
     <div className="App">
       <div className="location" style={styles}></div>
-      <Header checkLevel = {level} checkCharacters = {characters} />
+      <Header checkLevel = {level} checkCharacters = {characters}/>
       <Image handleClick = {handleClick}/>
     </div>
   );

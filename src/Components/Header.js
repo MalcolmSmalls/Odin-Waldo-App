@@ -1,4 +1,5 @@
 import React from "react"
+import Timer from "./Timer"
 
 export default function Header(props){
     return (
@@ -7,6 +8,11 @@ export default function Header(props){
                 <h1>Where's Waldo</h1>
                 {props.checkLevel === 0 && <h2>Level: Easy</h2>}
             </div>
+
+            <div className = "middle">
+                <Timer /> 
+            </div>
+
             <div className = "rightSide"> 
 
             {props.checkCharacters.waldo === 1 ? 
@@ -16,7 +22,7 @@ export default function Header(props){
                 </div>
 
             : null}
-            
+
             </div>  
 
 

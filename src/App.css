@@ -16,6 +16,8 @@ body{
 
 header {
   display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .find-waldo{
@@ -36,4 +38,9 @@ h3 {
   margin-top:30px;
   width:15%;
   height:auto;
+}
+
+.middle {
+  text-align:center;
+  margin-left:auto;
 }
