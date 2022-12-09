@@ -4,7 +4,8 @@ export default function Timer(props){
 
     const [seconds, setSeconds] = React.useState(0)
     const [minutes, setMinutes] = React.useState(0)
-    const [hours, setHours] = React.useState(0)
+    const [hours, setHours] = React.useState(0) 
+    const {waldo, odlaw, wizard } = props.checkCharacters
 
     function getSeconds(){
             setSeconds(prevSeconds => {
@@ -33,64 +34,33 @@ export default function Timer(props){
         })
     }
 
-    // React.useEffect( () => {
-    //     const interval = setInterval( () => {
-    //         setSeconds(prevSeconds => {
-    //             if(prevSeconds < 5){
-    //                 return prevSeconds + 1
-    //             }else{
-    //                 setMinutes(prevMinutes => {
-    //                     setSeconds(0)
-    //                     if(prevMinutes < 5){
-    //                         return prevMinutes + 1
-    //                     }else{
-    //                         setHours(prevHours => {
-    //                             return prevHours + 1
-    //                         })
-    //                     }
-    //                 })
-    //             }})
-
-
-
-    //     }, 1000);
-    //     return () => clearInterval(interval)
-    // })
-
-    function stopTimer(timer) {
-        if(props.checkCharacters.waldo === 0){
-            clearInterval(timer)
-        }
-    }
 
     React.useEffect( () => {
-        const interval = setInterval(() => {
+
+        const intervalSec = setInterval(() => {
             getSeconds()
-            console.log(props.checkSpotlight)
         }, 1000);
-        if(props.checkCharacters.waldo === 0){
-             clearInterval(interval)
+
+
+        const intervalMin = setInterval ( () => getMinutes(), 60000 )
+
+        const intervalHr = setInterval ( () => getHours(), 3600000)
+
+        if(waldo === 0 && odlaw === 0 & wizard === 0 ){
+             clearInterval(intervalSec)
+             clearInterval (intervalMin)
+             clearInterval (intervalHr)
         }
-        return () => clearInterval(interval);
+        return () => {
+            clearInterval(intervalSec);
+            clearInterval (intervalMin)
+            clearInterval (intervalHr)
+        }
     })
 
-    // React.useEffect ( () => {
-    //     if(props.checkCharacters.waldo === 0){
-    //         clearInterval(intervalS)
-    //     }
-    // }, [seconds])
 
-    React.useEffect( () => {
-        const interval = setInterval ( () => getMinutes(), 60000);
-        stopTimer(interval)
-        return () => clearInterval(interval);
-    }, [])
 
-    React.useEffect( () => {
-        const interval = setInterval ( () => getHours(), 3600000);
-        stopTimer(interval)
-        return () => clearInterval(interval);
-    }, [])
+
 
 
     return (
