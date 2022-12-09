@@ -61,7 +61,7 @@ function App() {
   return (
     <div className="App">
       <div className="location" style={styles}></div>
-      <Header checkLevel = {level} checkCharacters = {characters}/>
+      <Header checkLevel = {level} checkCharacters = {characters} checkSpotlight = {spotlight}/>
       <Image handleClick = {handleClick}/>
     </div>
   );

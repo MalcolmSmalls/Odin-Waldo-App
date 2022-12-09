@@ -7,12 +7,13 @@ export default function Timer(props){
     const [hours, setHours] = React.useState(0)
 
     function getSeconds(){
-        setSeconds(prevSeconds => {
-            if(prevSeconds < 59){
-                return prevSeconds + 1
-            }else{
-                    setSeconds(0)
-            }})
+            setSeconds(prevSeconds => {
+                if(prevSeconds < 59){
+                    return prevSeconds + 1
+                }else{
+                        setSeconds(0)
+                }})
+
     }
 
     function getMinutes () {
@@ -56,19 +57,38 @@ export default function Timer(props){
     //     return () => clearInterval(interval)
     // })
 
+    function stopTimer(timer) {
+        if(props.checkCharacters.waldo === 0){
+            clearInterval(timer)
+        }
+    }
 
     React.useEffect( () => {
-        const interval = setInterval(() => getSeconds(), 1000);
+        const interval = setInterval(() => {
+            getSeconds()
+            console.log(props.checkSpotlight)
+        }, 1000);
+        if(props.checkCharacters.waldo === 0){
+             clearInterval(interval)
+        }
         return () => clearInterval(interval);
-    }, [])
+    })
+
+    // React.useEffect ( () => {
+    //     if(props.checkCharacters.waldo === 0){
+    //         clearInterval(intervalS)
+    //     }
+    // }, [seconds])
 
     React.useEffect( () => {
         const interval = setInterval ( () => getMinutes(), 60000);
+        stopTimer(interval)
         return () => clearInterval(interval);
     }, [])
 
     React.useEffect( () => {
         const interval = setInterval ( () => getHours(), 3600000);
+        stopTimer(interval)
         return () => clearInterval(interval);
     }, [])
 

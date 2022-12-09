@@ -10,7 +10,7 @@ export default function Header(props){
             </div>
 
             <div className = "middle">
-                <Timer /> 
+                <Timer checkCharacters = {props.checkCharacters} checkSpotlight = {props.checkSpotlight} /> 
             </div>
 
             <div className = "rightSide"> 
