@@ -4,7 +4,8 @@ export default function Timer(props){
 
     const [seconds, setSeconds] = React.useState(0)
     const [minutes, setMinutes] = React.useState(0)
-    const [hours, setHours] = React.useState(0) 
+    const [hours, setHours] = React.useState(0)
+    const [bestTimes, setBestTimes] = React.useState([])
     const {waldo, odlaw, wizard } = props.checkCharacters
 
     function getSeconds(){
@@ -58,7 +59,12 @@ export default function Timer(props){
         }
     })
 
-
+    React.useEffect( () => {
+        if(waldo === 0 && odlaw === 0 && wizard === 0){
+            const finalTime = hours.toString() + minutes.toString() + seconds.toString()
+            localStorage.setItem('bestTimes', +finalTime) 
+        }
+    })
 
 
 
